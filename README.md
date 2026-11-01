@@ -38,24 +38,24 @@
 3. Появятся окна
 ## Скриншоты 
 ### Скриншот 1: Меню 
- ![Картинка](src/MENU.png) 
+ ![Картинка](docs/MENU.png) 
 ### Скриншот 2: опция CPU
- ![Картинка](src/CPU.png) 
+ ![Картинка](docs/CPU.png) 
 ### Скриншот 3: опция RAM
- ![Картинка](src/RAM.png) 
+ ![Картинка](docs/RAM.png) 
 ### Скриншот 4: опция NETWORK TRAFFIC
- ![Картинка](src/NETWORK.png) 
+ ![Картинка](docs/NETWORK.png) 
 ### Скриншот 5: опция I/O
- ![Картинка](src/IO.png) 
+ ![Картинка](docs/IO.png) 
 ### Скриншот 6: опция BATTERY STATUS
- ![Картинка](src/BAT.png) 
+ ![Картинка](docs/BAT.png) 
 ### Скриншот 7: опция FILESYSTEM and SWAP
- ![Картинка](src/file.png) 
+ ![Картинка](docs/file.png) 
 ### Скриншот 8: опция Process Dynamics
- ![Картинка](src/process.png)
+ ![Картинка](docs/process.png)
 ### Скриншот 9: опция SYSTEEM LOAD AND UPTIME
- ![Картинка](src/uptime.png)  
+ ![Картинка](docs/uptime.png)  
 ### Скриншот 10: опция NETWORK CONNECTIONS
- ![Картинка](src/connect.png) 
+ ![Картинка](docs/connect.png) 
 ### Скриншот 11: опция THERMAL STATUS
- ![Картинка](src/thermal.png)
+ ![Картинка](docs//thermal.png)
