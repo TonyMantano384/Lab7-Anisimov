@@ -4,77 +4,77 @@
 Считывает загрузку CPU через GetSystemTimes.
 Показывает количество ядер (GetSystemInfo) и частоту процессора (через реестр).
 Обновляет данные каждую секунду.
-![Картинка](src/task1cpu.png)
+![Картинка](docs/task1cpu.png)
 
 ## RAM Monitoring (Мониторинг памяти):
 Использует GlobalMemoryStatusEx.
 Отображает общий объем ОЗУ, использованную и свободную память (в ГБ), а также процент загрузки.
-![Картинка](src/task2ram.png)
+![Картинка](docs/task2ram.png)
 
 ## Network Traffic (Сетевой трафик):
 Использует GetIfTable для получения статистики по сетевым интерфейсам.
 Считает разницу в байтах между вызовами, чтобы показать текущую скорость приема (RX) и передачи (TX) данных.
-![Картинка](src/task3network.png)
+![Картинка](docs/task3network.png)
 
 ## Disk I/O (Дисковый ввод-вывод)
 Использует DeviceIoControl с параметром IOCTL_DISK_PERFORMANCE для получения статистики чтения/записи с диска C:.
 Показывает скорость чтения и записи в МБ/с.
-![Картинка](src/task4disk.png)
+![Картинка](docs/task4disk.png)
 
 ## Battery Status (Статус батареи):
 Использует GetSystemPowerStatus.
 Показывает процент заряда, статус (заряжается/разряжается), подключена ли зарядка и оставшееся время работы.
-![Картинка](src/task5bat.png)
+![Картинка](docs/task5bat.png)
 
 ## Filesystem and Swap (Файловая система и подкачка):
 Показывает свободное и занятое место на диске C: (через GetDiskFreeSpaceExA).
 Показывает статистику использования файла подкачки (Swap/Pagefile) через GlobalMemoryStatusEx.
-![Картинка](src/task6file.png)
+![Картинка](docs/task6file.png)
 
 ## Process Dynamics (Динамика процессов):
 Делает снимок процессов (CreateToolhelp32Snapshot).
 Считает общее количество процессов.
 Ищет процесс, который потребляет больше всего оперативной памяти (через GetProcessMemoryInfo), и выводит его PID и имя.
-![Картинка](src/task7pro.png)
+![Картинка](docs/task7pro.png)
 
 ## System Load and Uptime (Нагрузка и время работы):
 Показывает время с момента запуска системы (GetTickCount).
 Дублирует текущую загрузку CPU.
-![Картинка](src/task8uptime.png)
+![Картинка](docs/task8uptime.png)
 
 ## Network Connections (Сетевые подключения):
 Использует GetTcpTable.
 Считает количество TCP-соединений и группирует их по состояниям (ESTABLISHED, LISTEN, TIME_WAIT и т.д.).
-![Картинка](src/task9connect.png)
+![Картинка](docs/task9connect.png)
 
 ## Thermal Status (Тепловой статус):
 Примечание: В данном коде этот пункт не считывает температуру напрямую (так как это сложно сделать стандартными средствами без драйверов), но он показывает имя процессора (из реестра) и статус питания/батареи.
-![Картинка](src/task10Temp.png)
+![Картинка](docs/task10Temp.png)
 
 ## Как запустить 
-1. Открыть файл src/ConsoleApplication21.sln в SharpDevelop или Visual Studio 
+1. Открыть файл docs/ConsoleApplication21.sln в SharpDevelop или Visual Studio 
 2. Нажать F5 
 3. Появятся окна
 ## Скриншоты 
 ### Скриншот 1: Меню 
- ![Картинка](src/MENU.png) 
+ ![Картинка](docs/MENU.png) 
 ### Скриншот 2: опция CPU
- ![Картинка](src/CPU.png) 
+ ![Картинка](docs/CPU.png) 
 ### Скриншот 3: опция RAM
- ![Картинка](src/RAM.png) 
+ ![Картинка](docs/RAM.png) 
 ### Скриншот 4: опция NETWORK TRAFFIC
- ![Картинка](src/NETWORK.png) 
+ ![Картинка](docs/NETWORK.png) 
 ### Скриншот 5: опция I/O
- ![Картинка](src/IO.png) 
+ ![Картинка](docs/IO.png) 
 ### Скриншот 6: опция BATTERY STATUS
- ![Картинка](src/BAT.png) 
+ ![Картинка](docs/BAT.png) 
 ### Скриншот 7: опция FILESYSTEM and SWAP
- ![Картинка](src/file.png) 
+ ![Картинка](docs/file.png) 
 ### Скриншот 8: опция Process Dynamics
- ![Картинка](src/process.png)
+ ![Картинка](docs/process.png)
 ### Скриншот 9: опция SYSTEEM LOAD AND UPTIME
- ![Картинка](src/uptime.png)  
+ ![Картинка](docs/uptime.png)  
 ### Скриншот 10: опция NETWORK CONNECTIONS
- ![Картинка](src/connect.png) 
+ ![Картинка](docs/connect.png) 
 ### Скриншот 11: опция THERMAL STATUS
- ![Картинка](src/thermal.png)
+ ![Картинка](docs/thermal.png)
