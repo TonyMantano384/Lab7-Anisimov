@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <windows.h>
 #include <string>
 #include <vector>
@@ -105,8 +105,9 @@ double getCPUFrequency() {
     }
     return (double)freq;
 }
-//ЦПУ
-
+/// <summary>
+/// ЦПУ сколько использвуетс
+/// </summary>
 void task1_CPU() {
     clearScreen();
     printHeader("CPU USAGE");
@@ -132,8 +133,9 @@ void task1_CPU() {
         Sleep(1000);
     }
 }
-// мониторинг за РАМом
-
+/// <summary>
+/// мониторинг за РАМом
+/// </summary>
 void task2_RAM() {
     clearScreen();
     printHeader("RAM MONITORING");
@@ -168,7 +170,7 @@ struct NetworkStats {
     long long rxBytes;
     long long txBytes;
 };
-//Получить статы о инете
+
 NetworkStats getNetworkStats() {
     NetworkStats stats = { 0, 0 };
     MIB_IFTABLE* pIfTable = NULL;
@@ -198,7 +200,9 @@ string formatSpeed(double speed) {
     }
     return formatNumber(speed, 2) + " KB/s";
 }
-
+/// <summary>
+///  статы о инете
+/// </summary>
 void task3_Network() {
     clearScreen();
     printHeader("NETWORK TRAFFIC");
@@ -225,7 +229,6 @@ void task3_Network() {
     }
 }
 
-//Получить диска
 struct DiskStats {
     long long readBytes;
     long long writeBytes;
@@ -249,7 +252,9 @@ DiskStats getDiskStats() {
     }
     return stats;
 }
-//Вывести статы диска
+/// <summary>
+/// Вывести статы диска
+/// </summary>
 void task4_DiskIO() {
     clearScreen();
     printHeader("DISK I/O");
@@ -276,8 +281,9 @@ void task4_DiskIO() {
         Sleep(1000);
     }
 }
-
-//Статус батарейки, если она есть
+/// <summary>
+/// Статус батарейки, если она есть
+/// </summary>
 
 void task5_Battery() {
     clearScreen();
@@ -321,7 +327,9 @@ void task5_Battery() {
     }
 }
 
-
+/// <summary>
+/// Фалйовая система с диска С
+/// </summary>
 
 void task6_Filesystem() {
     clearScreen();
@@ -331,7 +339,7 @@ void task6_Filesystem() {
     while (true) {
         string output = "";
 
-        //Фалйовая система с диска С
+
         ULARGE_INTEGER freeBytes, totalBytes;
         if (GetDiskFreeSpaceExA("C:\\", &freeBytes, &totalBytes, NULL)) {
             double totalGB = totalBytes.QuadPart / (1024.0 * 1024.0 * 1024.0);
@@ -345,7 +353,6 @@ void task6_Filesystem() {
             output += "Usage: " + formatNumber(usagePercent, 1) + "%";
         }
 
-        // Смена инфЫ
         MEMORYSTATUSEX memStatus;
         memStatus.dwLength = sizeof(memStatus);
 
@@ -365,6 +372,9 @@ void task6_Filesystem() {
         Sleep(1000);
     }
 }
+/// <summary>
+///  Процесы которые работают
+/// </summary>
 void task7_Processes() {
     clearScreen();
     printHeader("PROCESS DYNAMICS");
@@ -396,7 +406,7 @@ void task7_Processes() {
             CloseHandle(hSnapshot);
         }
 
-        // Процес с большей паматью
+        
         string topProcess = "N/A";
         SIZE_T maxMemory = 0;
         DWORD topPID = 0;
@@ -431,8 +441,9 @@ void task7_Processes() {
         Sleep(1000);
     }
 }
-
-//Время загрузки и время работы
+/// <summary>
+///Время загрузки и время работы
+/// </summary>
 
 void task8_LoadUptime() {
     clearScreen();
@@ -441,7 +452,7 @@ void task8_LoadUptime() {
     Sleep(1000);
 
     while (true) {
-        // вермя загрузки
+
         DWORD uptime = GetTickCount() / 1000;
         int hours = uptime / 3600;
         int minutes = (uptime % 3600) / 60;
@@ -452,11 +463,9 @@ void task8_LoadUptime() {
         if (minutes > 0 || hours > 0) output += to_string(minutes) + "m ";
         output += to_string(seconds) + "s | ";
 
-        // цпу загруузка
         double cpuLoad = getCPUUsage();
         output += "CPU Load: " + formatNumber(cpuLoad, 1) + "%";
 
-        // формат вермени
         char timeStr[9];
         _snprintf_s(timeStr, sizeof(timeStr), _TRUNCATE, "%02d:%02d:%02d", hours, minutes, seconds);
         output += " | " + string(timeStr);
@@ -482,7 +491,9 @@ string getTCPState(DWORD state) {
     default: return "UNKNOWN";
     }
 }
-
+/// <summary>
+/// Соединения
+/// </summary>
 void task9_Connections() {
     clearScreen();
     printHeader("NETWORK CONNECTIONS");
@@ -518,6 +529,9 @@ void task9_Connections() {
         Sleep(1000);
     }
 }
+/// <summary>
+///  Подключение и питание (от провода или батарейки)
+/// </summary>
 
 void task10_Temperature() {
     clearScreen();
@@ -559,8 +573,9 @@ void task10_Temperature() {
         Sleep(1000);
     }
 }
-
-//Меню
+/// <summary>
+/// Меню
+/// </summary>
 
 void showMenu() {
     clearScreen();
@@ -578,6 +593,7 @@ void showMenu() {
     cout << "10. Thermal Status\n";
     cout << "0. Exit\n";
     cout << "\nSelect task (0-10):";
+    cout << "Сделанно Анисимовым Дмитрием И43";
 }
 
 int main() {
