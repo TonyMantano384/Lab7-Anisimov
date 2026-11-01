@@ -106,7 +106,7 @@ double getCPUFrequency() {
     return (double)freq;
 }
 /// <summary>
-/// ЦПУ сколько использвуетс
+/// ЦПУ сколько использвует
 /// </summary>
 void task1_CPU() {
     clearScreen();
