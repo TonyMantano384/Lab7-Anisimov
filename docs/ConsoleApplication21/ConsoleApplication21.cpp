@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <windows.h>
 #include <string>
 #include <vector>
@@ -15,8 +15,6 @@
 #pragma comment(lib, "ws2_32.lib")
 
 using namespace std;
-
-// ==================== HELPER FUNCTIONS ====================
 
 string padRight(const string& str, size_t width) {
     if (str.length() >= width) return str;
@@ -107,6 +105,7 @@ double getCPUFrequency() {
     }
     return (double)freq;
 }
+//ЦПУ
 
 void task1_CPU() {
     clearScreen();
@@ -133,6 +132,7 @@ void task1_CPU() {
         Sleep(1000);
     }
 }
+// мониторинг за РАМом
 
 void task2_RAM() {
     clearScreen();
@@ -168,7 +168,7 @@ struct NetworkStats {
     long long rxBytes;
     long long txBytes;
 };
-
+//Получить статы о инете
 NetworkStats getNetworkStats() {
     NetworkStats stats = { 0, 0 };
     MIB_IFTABLE* pIfTable = NULL;
@@ -225,7 +225,7 @@ void task3_Network() {
     }
 }
 
-
+//Получить диска
 struct DiskStats {
     long long readBytes;
     long long writeBytes;
@@ -249,7 +249,7 @@ DiskStats getDiskStats() {
     }
     return stats;
 }
-
+//Вывести статы диска
 void task4_DiskIO() {
     clearScreen();
     printHeader("DISK I/O");
@@ -277,7 +277,7 @@ void task4_DiskIO() {
     }
 }
 
-
+//Статус батарейки, если она есть
 
 void task5_Battery() {
     clearScreen();
@@ -322,6 +322,7 @@ void task5_Battery() {
 }
 
 
+
 void task6_Filesystem() {
     clearScreen();
     printHeader("FILESYSTEM AND SWAP");
@@ -330,7 +331,7 @@ void task6_Filesystem() {
     while (true) {
         string output = "";
 
-        // Drive C: information
+        //Фалйовая система с диска С
         ULARGE_INTEGER freeBytes, totalBytes;
         if (GetDiskFreeSpaceExA("C:\\", &freeBytes, &totalBytes, NULL)) {
             double totalGB = totalBytes.QuadPart / (1024.0 * 1024.0 * 1024.0);
@@ -344,7 +345,7 @@ void task6_Filesystem() {
             output += "Usage: " + formatNumber(usagePercent, 1) + "%";
         }
 
-        // Swap information
+        // Смена инфЫ
         MEMORYSTATUSEX memStatus;
         memStatus.dwLength = sizeof(memStatus);
 
@@ -367,6 +368,7 @@ void task6_Filesystem() {
 void task7_Processes() {
     clearScreen();
     printHeader("PROCESS DYNAMICS");
+    
 
 
     while (true) {
@@ -394,7 +396,7 @@ void task7_Processes() {
             CloseHandle(hSnapshot);
         }
 
-        // Find process with maximum memory usage
+        // Процес с большей паматью
         string topProcess = "N/A";
         SIZE_T maxMemory = 0;
         DWORD topPID = 0;
@@ -430,6 +432,7 @@ void task7_Processes() {
     }
 }
 
+//Время загрузки и время работы
 
 void task8_LoadUptime() {
     clearScreen();
@@ -438,7 +441,7 @@ void task8_LoadUptime() {
     Sleep(1000);
 
     while (true) {
-        // Uptime
+        // вермя загрузки
         DWORD uptime = GetTickCount() / 1000;
         int hours = uptime / 3600;
         int minutes = (uptime % 3600) / 60;
@@ -449,11 +452,11 @@ void task8_LoadUptime() {
         if (minutes > 0 || hours > 0) output += to_string(minutes) + "m ";
         output += to_string(seconds) + "s | ";
 
-        // CPU Load
+        // цпу загруузка
         double cpuLoad = getCPUUsage();
         output += "CPU Load: " + formatNumber(cpuLoad, 1) + "%";
 
-        // Formatted time
+        // формат вермени
         char timeStr[9];
         _snprintf_s(timeStr, sizeof(timeStr), _TRUNCATE, "%02d:%02d:%02d", hours, minutes, seconds);
         output += " | " + string(timeStr);
@@ -557,7 +560,7 @@ void task10_Temperature() {
     }
 }
 
-
+//Меню
 
 void showMenu() {
     clearScreen();
@@ -575,6 +578,7 @@ void showMenu() {
     cout << "10. Thermal Status\n";
     cout << "0. Exit\n";
     cout << "\nSelect task (0-10):";
+    cout << "Сделанно Анисимовым Дмитрием И43";
 }
 
 int main() {
@@ -591,7 +595,7 @@ int main() {
             cout << "\nExiting program...\n";
             break;
         }
-
+        
         switch (choice) {
         case 1: task1_CPU(); break;
         case 2: task2_RAM(); break;
